@@ -51,7 +51,7 @@ exports.login = (req, res, next) => {
                         token: jwt.sign(
                             {userId: user._id},
                             //Nous utilisons une chaîne secrète  pour crypter notre token
-                            'RANDOM_TOKEN_SECRET',
+                            process.env.TOKEN_SECRET,
                             //Nous définissons la durée de validité du token à 24 heures.
                             // L'utilisateur devra donc se reconnecter au bout de 24 heures.
                             {expiresIn: '24h'}
